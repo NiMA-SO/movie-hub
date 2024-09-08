@@ -1,0 +1,4 @@
+.list-con:hover .arrowDown{
+    transform: rotate(180deg);
+    transition: all 0.5s;
+}
