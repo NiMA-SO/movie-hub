@@ -1,4 +1,27 @@
-.list-con:hover .arrowDown{
+.list-con .arrowDown{
     transform: rotate(180deg);
     transition: all 0.5s;
+}
+
+body{
+    transition: all 0.2s;
+}
+
+.minHidden {
+    display: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.swiper-slide{
+    width: 23rem;
+    height: 34rem;
+    position: relative;
+}
+.swiper-slide-active img{
+    border: 2px solid rgb(255, 94, 0);
+}
+.swiper-pagination span{
+    background-color: rgb(255, 94, 0);
 }

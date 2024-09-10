@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import './index.css'
+import GenreProvider from "../components/GenreProvider"
 
 
 const Layout = () => {
   return (
     <>
-      <NavBar/>
-      <Outlet/>
+      <GenreProvider>
+        <NavBar/>
+        <Outlet/>
+      </GenreProvider>
     </>
   )
 }
