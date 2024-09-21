@@ -12,7 +12,7 @@ const useGenres = (endpoint : string,query : string) =>{
     const apiClient = new APIClient<Genre>(endpoint)
     return useQuery({
         queryKey: [query],
-        queryFn: apiClient.getAll
+        queryFn: apiClient.getGenres
     })
 }
 

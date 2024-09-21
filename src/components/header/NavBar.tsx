@@ -3,7 +3,7 @@ import Nav from "./Nav";
 
 const NavBar = () => {
   return (
-    <header className="sticky top-0 z-50 select-none flex justify-center scroll-[] bg-[#f9f9f9] dark:bg-[#2c2c2e] shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_rgba(255,255,255,0.05)]">
+    <header className="sticky top-0 z-50 select-none flex justify-center scroll-[] bg-white dark:bg-[#2c2c2e] shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_12px_rgba(255,255,255,0.05)]">
       <div className="w-[90%] grid grid-cols-8  ">
         <h1 className="pb-2 bold font-bold w-[100%] col-span-2 ">
           <Link to={'/'}>

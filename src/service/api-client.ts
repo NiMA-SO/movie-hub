@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import Discover from "../components/Discover";
 
 export interface FetchResponse<T> {
     genres: T[]
@@ -32,6 +33,10 @@ export interface FetchResponseAllActor<T> {
   next: string | null
 }
 
+interface FetchResponseDiscover<T>{
+  page: number;
+  results: T[];
+}
 
 
 const axiosInstance = axios.create({
@@ -49,7 +54,7 @@ class APIClient<T> {
     this.endpoint= endpoint;
   }
 
-  getAll = (config: AxiosRequestConfig) => {
+  getGenres = (config: AxiosRequestConfig) => {
     return axiosInstance.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
   }
 
@@ -59,6 +64,9 @@ class APIClient<T> {
   getActorDetail = (config: AxiosRequestConfig) => {
     return axiosInstance.get<ActorDetail>(this.endpoint, config).then(res => res.data)
   }
+  getPostDetail = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<Discover>(this.endpoint, config).then(res => res.data)
+  }
   getPlayedActor = (config: AxiosRequestConfig) => {
     return axiosInstance.get<FetchResponsePlayedActor<T>>(this.endpoint, config).then(res => res.data)
   }
@@ -66,10 +74,9 @@ class APIClient<T> {
   getAllActor = (config: AxiosRequestConfig) => {
     return axiosInstance.get<FetchResponseAllActor<T>>(this.endpoint, config).then(res => res.data)
   }
-
-  // get = (id : number | string) =>{
-  //   return axiosInstance.get<T>(`${this.endpoint}/${id}`).then(res => res.data)
-  // }
+  getDiscover = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<FetchResponseDiscover<T>>(this.endpoint, config).then(res => res.data)
+  }
 }
 
 export default APIClient;
