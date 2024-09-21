@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import useGenres from "../hooks/useGenres";
 import GenreContext from "./GenreContext";
+import useGenres from "../../hooks/useGenres";
 
 const NavData = () => {
   const { data: movie } = useGenres("/genre/movie/list", "movies:genres");

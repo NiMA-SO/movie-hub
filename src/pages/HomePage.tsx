@@ -1,14 +1,17 @@
-import NavData from "../components/NavData";
+import Actor from "../components/Actor";
+import NavData from "../components/header/NavData";
 import TrendingSwiper from "../components/TrendingSwiper";
 
 const HomePage = () => {
-
   return (
     <>
       <NavData />
-      <main className="h-[600px] my-8 flex flex-col items-center ">
-        <TrendingSwiper />
-      </main>
+      <section className="w-[98%] md:w-[80%] mx-auto">
+        <main className="sm:h-[600px] my-8 flex flex-col items-center ">
+          <TrendingSwiper />
+        </main>
+        <Actor />
+      </section>
     </>
   );
 };

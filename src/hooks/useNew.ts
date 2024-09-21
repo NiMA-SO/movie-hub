@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../service/api-client";
 
-interface Film {
+export interface Film {
   id: number;
   original_title: string;
   title: string;
   poster_path: string;
   release_date:string;
+  original_name:string
+  vote_average:number
 }
 
 const useNews = (endpoint: string, query: string) => {

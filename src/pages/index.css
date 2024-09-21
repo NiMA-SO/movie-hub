@@ -14,14 +14,48 @@ html{
     scroll-behavior: smooth;
 }
 
+/* ::selection */
+.light *::selection{
+    background-color: #ff3b30;
+    color: #f2f2f7;
+}
+.dark *::selection{
+    background-color: #ff9500;
+    color: #333333;
+}
+/* ::selection */
+
+
+/* swiper */
 .swiper-slide{
     width: 23rem;
     height: 34rem;
     position: relative;
 }
-.swiper-slide-active img{
-    border: 2px solid rgb(255, 94, 0);
+.light .swiper-slide-active img{
+    border: 2px solid #ff3b30;
 }
-.swiper-pagination span{
-    background-color: rgb(255, 94, 0);
+.dark .swiper-slide-active img{
+    border: 2px solid #ff9500;
 }
+
+.light .swiper-pagination span{
+    background-color: #ff3b30;
+}
+.dark .swiper-pagination span{
+    background-color: #ff9500;
+}
+/* swiper */
+
+
+
+
+/* actor details */
+.dark .swiper-pagination-progressbar-fill {
+    background-color: #ff9500; /* رنگ در حالت Dark Mode */
+}
+
+.light .swiper-pagination-progressbar-fill {
+    background-color: #ff3b30; /* رنگ در حالت Light Mode */
+}
+/* actor details */

@@ -1,8 +1,8 @@
-import Switch from "./Switch";
-import NavList from "./NavList";
 import Search from "./Search";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import NavList from "./NavList";
+import Switch from "./Switch";
 
 const Nav = () => {
   const [searchVisible, setVisible] = useState(false);

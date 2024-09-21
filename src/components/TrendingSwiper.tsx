@@ -12,15 +12,14 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useMovies from "../hooks/useNew";
-import {
-  FaArrowAltCircleLeft,
-  FaArrowAltCircleRight,
-} from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import "./../pages/index.css";
+import { useState } from "react";
 // import { useState } from "react";
 
 const TrendingSwiper = () => {
-  const { data: movies } = useMovies("/trending/all/day", "trending");
+  const [trend, setTrend] = useState("day");
+  const { data: movies } = useMovies(`/trending/all/${trend}`,`trending ${trend}`);
   // const { data: series } = useMovies("/discover/movie", "newMovie");
   // const [hover, setHover] = useState("");
 
@@ -29,6 +28,24 @@ const TrendingSwiper = () => {
   if (movies && Swiper)
     return (
       <>
+        <div className="inline-flex rounded-md overflow-hidden shadow-sm relative bg-[#f9f9f9] dark:bg-[#3a3a3c] border-[1px]  border-[#ff3b30] dark:border-[#ff9500]" role="group">
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium text-[#333333] dark:text-[#f2f2f7] rounded-s-lg z-[5]"
+            onClick={() => setTrend('day')}
+          >
+            Today
+          </button>
+          <div className={`h-full duration-500 bg-[#ff3b30] dark:bg-[#ff9500] absolute ${trend == 'day' ? 'left-0 w-[75px]' : 'left-[75px] w-[100px] '}`}></div>
+
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium text-[#333333] dark:text-[#f2f2f7] rounded-e-lg z-[5]"
+            onClick={() => setTrend('week')}
+          >
+            This Week
+          </button>
+        </div>
         <Swiper
           modules={[
             Navigation,
@@ -37,7 +54,7 @@ const TrendingSwiper = () => {
             Autoplay,
             EffectCoverflow,
           ]}
-          className="w-[80%] h-[25rem] md:h-[35rem] lg:h-[35rem] relative pb-10"
+          className="w-full h-[25rem] md:h-[35rem] lg:h-[35rem] relative pb-10"
           slidesPerView={"auto"}
           spaceBetween={"20px"}
           navigation={{
@@ -96,10 +113,10 @@ const TrendingSwiper = () => {
           </div>
         </Swiper>
         <div className="flex gap-16">
-          <button className=" text-[#ff5733] dark:text-[#ffd580] text-[40px] prevBtn z-[20]">
+          <button className="duration-200 text-[#ff5733] hover:text-[#b63c22] dark:text-[#ffd580] hover:dark:text-[#c7942e] text-[40px] prevBtn z-[20]">
             <FaArrowAltCircleLeft />
           </button>
-          <button className=" text-[#ff5733] dark:text-[#ffd580] text-[40px] nextBtn z-[10]">
+          <button className="duration-200 text-[#ff5733] hover:text-[#b63c22] dark:text-[#ffd580] hover:dark:text-[#c7942e] text-[40px] nextBtn z-[10]">
             <FaArrowAltCircleRight />
           </button>
         </div>

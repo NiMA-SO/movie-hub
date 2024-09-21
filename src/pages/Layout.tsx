@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
-import NavBar from "../components/NavBar"
+import NavBar from "../components/header/NavBar"
 import './index.css'
-import GenreProvider from "../components/GenreProvider"
+import GenreProvider from "../components/header/GenreProvider"
 
 
 const Layout = () => {
