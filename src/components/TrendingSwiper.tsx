@@ -86,7 +86,6 @@ const TrendingSwiper = () => {
                     className="mx-auto w-full rounded-2xl duration-200"
                   />
                   {/* </div> */}
-                  <p>{movie.id}</p>
                 </SwiperSlide>
               )
           )}

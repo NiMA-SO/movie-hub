@@ -12,20 +12,27 @@ export interface Discover {
   release_date: string;
   vote_average: number;
   vote_count: number;
-  media_type:string;
+  media_type: string;
   name: string;
   genres: Genre[];
   status: string;
   runtime: number;
+  spoken_languages: Spoken[];
+  imdb_id: string;
 }
 
-interface Genre{
+interface Genre {
   id: number;
-  name: string
+  name: string;
+}
+
+interface Spoken {
+  english_name: string;
+  iso_639_1: string;
+  name: string;
 }
 
 const useDiscover = (endpoint: string, query: string) => {
-
   const apiClient = new APIClient<Discover>(endpoint);
   return useQuery({
     queryKey: [query],

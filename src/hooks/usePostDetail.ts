@@ -10,7 +10,7 @@ interface Props{
 
 const usePostDetail = ({postId , type} : Props) => {
     const apiClient = new APIClient<Discover>(`/${type}/${postId}`);
-    console.log(postId)
+    
     return useQuery({
         queryKey: ['postDetail',type,postId],
         queryFn: apiClient.getPostDetail
