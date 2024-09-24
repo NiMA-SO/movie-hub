@@ -21,19 +21,19 @@ const PostNav = ({ data, isPreviousData }: Props) => {
   const pageSize = 20;
 
 
-  useEffect(() => {
-    if (data?.results && data?.results.length > 0) {
-      const totalPosts = data.total_results / 2 || 0;
-      setTotalPosts(totalPosts);
-      const totalPages = Math.ceil(totalPosts / pageSize);
-      setTotalPages(totalPages);
-    } else {
-      // Handle case when data or results is undefined or empty
-      setTotalPosts(0);
-      setTotalPages(0);
-    }
-  }, [data]);
-  
+ useEffect(() => {
+  if (data?.results && data?.results.length > 0) {
+    const totalPosts = data.total_results / 2 || 0;
+    setTotalPosts(totalPosts);
+    const totalPages = Math.ceil(totalPosts / pageSize);
+    setTotalPages(totalPages);
+  } else {
+    // Handle case when data or results is undefined or empty
+    setTotalPosts(0);
+    setTotalPages(0);
+  }
+}, [data]);
+
 
 
   const startItem = (page - 1) * pageSize + 1;
