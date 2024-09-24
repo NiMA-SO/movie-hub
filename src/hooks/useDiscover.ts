@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../service/api-client";
 
+// تعریف اینترفیس‌های مربوط به داده‌ها
 export interface Discover {
   id: number;
   genre_ids: number[];
@@ -32,16 +33,19 @@ interface Spoken {
   name: string;
 }
 
-const useDiscover = (endpoint: string, query: string) => {
+// اضافه کردن صفحه به پارامترهای هوک
+const useDiscover = (endpoint: string, query: string, page: number) => {
   const apiClient = new APIClient<Discover>(endpoint);
+
   return useQuery({
-    queryKey: [query],
+    queryKey: [query, page], // صفحه را به queryKey اضافه می‌کنیم تا داده‌ها بر اساس صفحه تغییر کنند
     queryFn: () =>
       apiClient.getDiscover({
         params: {
-          page: 2,
+          page: page, // شماره صفحه به API فرستاده می‌شود
         },
       }),
+    keepPreviousData: true, // داده‌های صفحه قبلی را حفظ می‌کند تا بارگذاری صفحه جدید نرم‌تر باشد
   });
 };
 

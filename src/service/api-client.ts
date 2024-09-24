@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import Discover from "../components/Discover";
+import { Discover } from "../hooks/useDiscover";
 
 export interface FetchResponse<T> {
     genres: T[]
@@ -36,6 +36,7 @@ export interface FetchResponseAllActor<T> {
 interface FetchResponseDiscover<T>{
   page: number;
   results: T[];
+  total_results: number
 }
 
 

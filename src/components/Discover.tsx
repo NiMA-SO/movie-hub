@@ -1,6 +1,6 @@
 import Post from "./Post";
 
-interface Discover {
+interface DiscoverResponse {
   id: number;
   genre_ids: number[];
   original_language: string;
@@ -32,7 +32,7 @@ interface Spoken {
 }
 
 interface Props {
-  data: Discover[] | undefined;
+  data: DiscoverResponse[] | undefined;
 }
 
 const Discover = ({ data }: Props) => {
