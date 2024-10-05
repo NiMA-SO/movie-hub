@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import Discover from "../components/Discover";
 import APIClient from "../service/api-client";
+import { Discover } from "./useDiscover";
 
 
 interface Props{
     postId: number;
-    type: string
+    type: string | undefined;
 }
 
 const usePostDetail = ({postId , type} : Props) => {
@@ -13,7 +13,11 @@ const usePostDetail = ({postId , type} : Props) => {
     
     return useQuery({
         queryKey: ['postDetail',type,postId],
-        queryFn: apiClient.getPostDetail
+        queryFn: () => apiClient.getPostDetail({
+            params:{
+                append_to_response: 'credits,videos,images,reviews,similar,recommendations',
+            }
+        })
     })
 }
 

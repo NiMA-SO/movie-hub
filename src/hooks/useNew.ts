@@ -5,10 +5,16 @@ export interface Film {
   id: number;
   original_title: string;
   title: string;
+  name: string;
+  overview: string;
   poster_path: string;
+  backdrop_path: string;
   release_date:string;
   original_name:string
-  vote_average:number
+  vote_average:number;
+  vote_count:number;
+  media_type: string;
+  imdb_id: string;
 }
 
 const useNews = (endpoint: string, query: string) => {

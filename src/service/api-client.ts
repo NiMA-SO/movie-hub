@@ -39,6 +39,15 @@ interface FetchResponseDiscover<T>{
   total_results: number
 }
 
+interface FetchResponsePostImages<T>{
+  id:number;
+  backdrops: T[];
+}
+interface FetchResponsePostVideos<T>{
+  id:number;
+  results: T[];
+}
+
 
 const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -68,6 +77,12 @@ class APIClient<T> {
   getPostDetail = (config: AxiosRequestConfig) => {
     return axiosInstance.get<Discover>(this.endpoint, config).then(res => res.data)
   }
+  getPostImages = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<FetchResponsePostImages<T>>(this.endpoint, config).then(res => res.data)
+  }
+  getPostVideos = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<FetchResponsePostVideos<T>>(this.endpoint, config).then(res => res.data)
+  }
   getPlayedActor = (config: AxiosRequestConfig) => {
     return axiosInstance.get<FetchResponsePlayedActor<T>>(this.endpoint, config).then(res => res.data)
   }
@@ -77,6 +92,9 @@ class APIClient<T> {
   }
   getDiscover = (config: AxiosRequestConfig) => {
     return axiosInstance.get<FetchResponseDiscover<T>>(this.endpoint, config).then(res => res.data)
+  }
+  getSeasons = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<T>(this.endpoint, config).then(res => res.data)
   }
 }
 

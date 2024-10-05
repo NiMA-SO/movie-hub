@@ -12,21 +12,27 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useMovies from "../hooks/useNew";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { FaAngleRight, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import "./../pages/index.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import PostContext from "./PostType";
+import { Link } from "react-router-dom";
+import ImdbRate from "./ImdbRate";
 // import { useState } from "react";
 
 const TrendingSwiper = () => {
-  const {postType, dispatch} = useContext(PostContext);
+  const { postType } = useContext(PostContext);
+  const [activeSlide, setActiveSlide] = useState<number | null>(null);
+  // const [hover, setHover] = useState<number | null>(null);
 
-  const { data: movies } = useMovies(`/trending/all/${postType}`,`trending ${postType}`);
+  const { data: movies } = useMovies(
+    `/trending/all/${postType}`,
+    `trending ${postType}`
+  );
 
   if (movies && Swiper)
     return (
       <>
-
         <Swiper
           modules={[
             Navigation,
@@ -60,32 +66,59 @@ const TrendingSwiper = () => {
             modifier: 2.5,
           }}
           centeredSlides={true}
-          // parallax={true}
+          parallax={true}
+          onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
         >
           {movies?.results.map(
-            (movie) =>
+            (movie, index) =>
               movie.poster_path && (
                 <SwiperSlide
-                  className="flex justify-center py-12 w-[15rem] h-[25rem] md:w-[20rem] md:h-[31rem] lg:w-[23rem] lg:h-[34rem]"
+                  className={`flex justify-center py-12 w-[14rem] h-[25rem] ${
+                    activeSlide === index
+                      ? "sm:w-[36.25rem] sm:h-[23.5625rem] md:w-[42.25rem] md:h-[28.5625rem] lg:w-[47.25rem] lg:h-[33.5625rem]"
+                      : "md:w-[19rem] md:h-[31rem] lg:w-[22rem] lg:h-[34rem]"
+                  }`}
                   key={movie.id}
                 >
-                  {/* <div
-                    className="text-center duration-200 z-30 flex justify-center items-center w-[300px]"
-                    onMouseEnter={() => setHover(movie.title)}
-                    onMouseLeave={() => setHover("")}
-                  > */}
-                  {/* {hover === movie.title && (
-                      <h2 className={" duration-200 absolute top-0  text-md w-[300px] h-[100%] break-words z-40 text-white bg-[#0000008c]  rounded-xl text-left backdrop-blur-[10px] flex flex-col justify-between p-3"}>
-                        <p className="flex justify-between items-center">{movie.title} : {movie.release_date} <FaAngleRight className="text-[20px]" /></p>
-                        <p className="flex justify-between items-center">{movie.title} : {movie.release_date} <FaAngleRight className="text-[20px]" /></p>
+                  <Link
+                    to={`/post/${movie.id}/${movie.media_type}`}
+                    className="w-full h-full flex justify-center relative"
+                    // onMouseEnter={() => setHover(movie.id)}
+                    // onMouseLeave={() => setHover(null)}
+                  >
+                    <img
+                      src={`https://image.tmdb.org/t/p/${
+                        activeSlide === index
+                          ? "w500" + movie.backdrop_path
+                          : "w220_and_h330_face" + movie.poster_path
+                      }`}
+                      alt={movie.title}
+                      className="hidden sm:block mx-auto w-full rounded-2xl duration-200"
+                    />
+                    <img
+                      src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+                      alt={movie.title}
+                      className="sm:hidden mx-auto w-full rounded-2xl duration-200"
+                    />
+                    {/*hover === movie.id */  activeSlide === index && (
+                      <h2
+                        className={
+                          " duration-200 absolute bottom-0 gap-3 text-md w-full break-words z-40 text-white bg-[#0000008c]  rounded-xl text-left backdrop-blur-[10px] flex flex-col justify-between p-3"
+                        }
+                      >
+                        <p className="flex justify-between items-center">
+                          {movie.title ? movie.title : movie.name} : {movie.release_date}{" "}
+                          <FaAngleRight className="text-[20px]" />
+                        </p>
+                        <ImdbRate blur={true} rating={movie.vote_average} imdbId={movie.imdb_id} ratingCount={movie.vote_count} />
+                        <p className="flex justify-between items-center">
+                          <span className="hidden lg:block">{movie.overview.substring(0,70)}...</span>
+                          <span className="block lg:hidden">{movie.overview.substring(0,20)}...</span>
+                          <FaAngleRight className="text-[20px]" />
+                        </p>
                       </h2>
-                    )} */}
-                  <img
-                    src={`https://image.tmdb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
-                    alt={movie.title}
-                    className="mx-auto w-full rounded-2xl duration-200"
-                  />
-                  {/* </div> */}
+                    )}
+                  </Link>
                 </SwiperSlide>
               )
           )}

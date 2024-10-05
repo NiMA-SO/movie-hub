@@ -16,8 +16,8 @@ import SkeletonActorDetail from "../components/SkeletonActorDetail";
 const ActorDetail = () => {
   const param = useParams();
   const { data: person , isLoading: personLoad } = useActorDetail(Number(param.id));
-  const { data: moviesPlayed, isLoading: movieLoad } = usePlayedActor(`/person/${person?.id}/movie_credits`,'movies played');
-  const { data: seriesPlayed, isLoading: seriesLoad } = usePlayedActor(`/person/${person?.id}/tv_credits`,'series played');
+  const { data: moviesPlayed, isLoading: movieLoad } = usePlayedActor(`/person/${param?.id}/movie_credits`,'movies played',Number(param.id));
+  const { data: seriesPlayed, isLoading: seriesLoad } = usePlayedActor(`/person/${param?.id}/tv_credits`,'series played',Number(param.id));
 
   if(personLoad || movieLoad || seriesLoad){
     return <SkeletonActorDetail />
@@ -25,7 +25,7 @@ const ActorDetail = () => {
 
   return (
     <div className="mx-auto my-8 w-[90%] grid grid-cols-6 gap-4">
-      <table className="col-span-6 lg:col-span-2 bg-[#f9f9f9] dark:bg-[#2c2c2e] p-4 rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7]">
+      <table className="col-span-6 lg:col-span-2 bg-[#ffffff] dark:bg-[#2c2c2e] p-4 rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7]">
         <tr className="border-collapse border-[1px] border-solid border-[#e5e5e5] dark:border-[#3a3a3c] ">
           <img
             src={`https://image.tmdb.org/t/p/w200${person?.profile_path}`}
@@ -88,12 +88,12 @@ const ActorDetail = () => {
         <tr className="border-collapse border-[1px] border-solid border-[#e5e5e5] dark:border-[#3a3a3c]">
           <td className="px-7 py-3">
             <h2 className="text-xl mb-2">Biography:</h2>
-            <ExpandableText>{person?.biography}</ExpandableText>
+            <ExpandableText limitLength={300}>{person?.biography}</ExpandableText>
           </td>
         </tr>
       </table>
-      <div className="h-[850px] col-span-6 lg:col-span-4 bg-[#f9f9f9] dark:bg-[#2c2c2e] p-4 rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7] ">
-        <div>
+      <div className="h-[850px] col-span-6 lg:col-span-4 bg-[#ffffff] dark:bg-[#2c2c2e] rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7] ">
+        <div className="border-[1px] border-solid border-[#e5e5e5] dark:border-[#3a3a3c] px-6 pt-3">
           <h2 className="text-[25px]">
             The movies{" "}
             {person?.gender === 1 ? "she" : person?.gender === 2 ? "he" : ""} played :
@@ -132,7 +132,7 @@ const ActorDetail = () => {
             ))}
           </Swiper>
         </div>
-        <div className="mt-2">
+        <div className="border-[1px] border-solid border-[#e5e5e5] dark:border-[#3a3a3c] px-6 pt-3">
           <h2 className="text-[25px]">
             The series{" "}
             {person?.gender === 1 ? "she" : person?.gender === 2 ? "he" : ""} played :

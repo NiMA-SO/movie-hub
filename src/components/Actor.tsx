@@ -53,7 +53,7 @@ const Actor = () => {
             key={actor.id}
             className=" text-black dark:text-white text-center"
           >
-            <Link to={`actor/${actor.id}`}>
+            <Link to={`/actor/${actor.id}`}>
               <div
                 className={
                   " w-[100px] h-[100px] rounded-full  mx-auto mb-1 border-2 border-[#ff5733] dark:border-[#ffd580] overflow-hidden object-contain"

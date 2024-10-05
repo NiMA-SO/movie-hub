@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import Layout from "../pages/Layout";
 import ActorDetail from "../pages/ActorDetail";
 import AllActor from "../pages/AllActor";
+import PostDetail from "../pages/PostDetail";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
             { path: '/page/:page', element: <HomePage/> },
             { path: '/actor/:id' , element: <ActorDetail/> },
             { path: '/actors' , element: <AllActor/> },
+            { path: '/post/:id/:type' , element: <PostDetail/> },
         ]
     }
 ])

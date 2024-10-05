@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Discover } from "../hooks/useDiscover";
 
 interface Props {
@@ -15,13 +15,14 @@ interface FetchResponseDiscover<T> {
 }
 
 const PostNav = ({ data, isPreviousData }: Props) => {
-    const [page, setPage] = useState<number>(1);
-  const [totalPosts, setTotalPosts] = useState<number>(0);
-  const [totalPages, setTotalPages] = useState<number>(0);
-  const pageSize = 20;
-
-
- useEffect(() => {
+    const [page, setPage] = useState<number>(2);
+    const [totalPosts, setTotalPosts] = useState<number>(0);
+    const [totalPages, setTotalPages] = useState<number>(0);
+    const pageSize = 20;
+    
+    
+    
+    useEffect(() => {
   if (data?.results && data?.results.length > 0) {
     const totalPosts = data.total_results / 2 || 0;
     setTotalPosts(totalPosts);
@@ -117,14 +118,14 @@ const PostNav = ({ data, isPreviousData }: Props) => {
   return (
     <div className="flex items-center justify-around text-[#333333] dark:text-[#f2f2f7] bg-white dark:bg-[#2c2c2e] border border-gray-200 rounded-lg shadow  dark:border-gray-700 px-4 py-3 sm:px-6 w-[100%] mt-6">
       <div className="flex flex-1 items-center justify-between">
-        <div>
+        <div className="hidden sm:block">
           <p className="text-sm">
             Showing <span className="font-medium">{startItem}</span> to{" "}
             <span className="font-medium">{endItem}</span> of{" "}
             <span className="font-medium">{totalPosts}</span> results
           </p>
         </div>
-        <div>
+        <div className="mx-auto">
           <nav
             aria-label="Pagination"
             className="isolate inline-flex -space-x-px rounded-md shadow-sm"

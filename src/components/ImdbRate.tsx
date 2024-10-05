@@ -3,11 +3,12 @@ import { PieChart, Pie, Cell } from "recharts";
 
 interface ImdbRateProps {
   rating: number; // نوع rating مشخص شده است
-  ratingCount: number;
-  imdbId: string;
+  ratingCount?: number;
+  imdbId?: string;
+  blur: boolean;
 }
 
-const ImdbRate: React.FC<ImdbRateProps> = ({ rating, ratingCount, imdbId }) => {
+const ImdbRate: React.FC<ImdbRateProps> = ({ rating, ratingCount, imdbId, blur }) => {
   const percentage = (rating / 10) * 100; // تبدیل امتیاز به درصد
   const data = [
     { name: "Completed", value: percentage },
@@ -64,14 +65,15 @@ const ImdbRate: React.FC<ImdbRateProps> = ({ rating, ratingCount, imdbId }) => {
 
 
   return (
-    <a
+    <div
       style={{ width: 60, height: 60, position: "relative" }}
-      href={
-        imdbId
-          ? `https://www.imdb.com/title/${imdbId}`
-          : "https://www.imdb.com/"
-      }
-      className="flex justify-center mx-auto"
+      className="flex justify-center mx-auto z-20 cursor-pointer"
+      onClick={(e) => {
+        e.preventDefault()
+        location.href = imdbId
+        ? `https://www.imdb.com/title/${imdbId}`
+        : "#"
+      }}
     >
       <PieChart width={60} height={60}>
         <Pie
@@ -107,14 +109,14 @@ const ImdbRate: React.FC<ImdbRateProps> = ({ rating, ratingCount, imdbId }) => {
           flexDirection: "column",
           fontSize: "12px",
         }}
-        className="text-[#333333] dark:text-[#f2f2f7]"
+        className={`${!blur ? 'text-[#333333] dark:text-[#f2f2f7]' : 'text-[#f2f2f7]'}`}
       >
         <span className="border-b-2 border-[#e5e5e5] dark:border-[#3a3a3c] pb-[1px]">
           {rating}
         </span>
-        <span>{formatNumber(ratingCount)} V</span>
+       {ratingCount && <span>{formatNumber(ratingCount)} V</span>}
       </div>
-    </a>
+    </div>
   );
 };
 

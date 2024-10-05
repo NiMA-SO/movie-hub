@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import usePostDetail from "../hooks/usePostDetail";
 import ImdbRate from "./ImdbRate";
+import RunTime from "./RunTime";
 
 interface Props {
   postId: number;
@@ -12,21 +14,11 @@ function capitalizeFirstLetter(str: string) {
 
 const Post = ({ postId, type }: Props) => {
   const { data: post } = usePostDetail({ postId, type });
-
-  const runtimeMovie = (num: number) => {
-    if (num >= 60) {
-      const hours = Math.floor(num / 60); // ساعت‌ها
-      const minutes = num % 60; // دقیقه‌های باقی‌مانده
-      return minutes > 0 ? `${hours} H ${minutes} M` : `${hours} H`; // نمایش ساعت و دقیقه یا فقط ساعت
-    } else {
-      return `${num} M`; // نمایش دقیقه‌ها
-    }
-  };
-
+  
   if (post)
     return (
-      <a
-        href="#"
+      <Link
+        to={`/post/${postId}/${type}`}
         className="overflow-hidden w-full col-span-1 grid grid-cols-8 bg-white dark:bg-[#2c2c2e] border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"
       >
         <div className="col-span-8 lg:col-span-2 flex items-center justify-center ">
@@ -67,7 +59,7 @@ const Post = ({ postId, type }: Props) => {
             )}
 
             {post?.runtime != 0 && post?.runtime && (
-              <p className="flex">Runtime : {runtimeMovie(post?.runtime)}</p>
+              <p className="flex gap-1">Runtime : <RunTime number={post.runtime} /></p>
             )}
 
             {post?.popularity && (
@@ -80,6 +72,7 @@ const Post = ({ postId, type }: Props) => {
                 rating={post?.vote_average}
                 ratingCount={post?.vote_count}
                 imdbId={post?.imdb_id}
+                blur={false}
               />
             )}
           </div>
@@ -93,7 +86,7 @@ const Post = ({ postId, type }: Props) => {
             Download the {type == "tv" ? "Series" : capitalizeFirstLetter(type)}
           </button>
         </div>
-      </a>
+      </Link>
     );
 
   return null; // برای حالتی که داده‌ها هنوز بارگیری نشده‌اند
