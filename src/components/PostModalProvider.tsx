@@ -5,7 +5,7 @@ export type ModalAction = number | null;
 
 // اصلاح شده: _state به جای state
 const tasksReducer = (_state: number | null, action: ModalAction): number | null => {
-  return action; // فقط مقدار action را باز می‌گرداند
+  return action;
 };
 
 interface Props {
