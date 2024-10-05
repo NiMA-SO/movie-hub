@@ -7,8 +7,8 @@ const AllActor = () => {
   const pageSize = 10;
   const {
     data,
-    error,
-    isLoading,
+    // error,
+    // isLoading,
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,

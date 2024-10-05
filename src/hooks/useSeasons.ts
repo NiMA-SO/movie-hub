@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../service/api-client";
-import { Discover } from "./useDiscover";
 
 
 interface Props{

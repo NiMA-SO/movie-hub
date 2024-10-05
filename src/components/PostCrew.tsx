@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Crew } from "../hooks/useDiscover";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Navigation,
@@ -15,7 +14,7 @@ interface Props {
   post: Crew[];
 }
 const PostCrew = ({ post }: Props) => {
-  const [imgImdbHover, setImgImdbHover] = useState<number>(Number(null));
+  // const [imgImdbHover, setImgImdbHover] = useState<number>(Number(null));
 
   return (
     <>
@@ -45,8 +44,8 @@ const PostCrew = ({ post }: Props) => {
           <SwiperSlide
             className="crew mt-6 w-[300px] h-[auto]  overflow-hidden flex justify-between items-center pb-[15px] flex-col bg-[#f2f2f7] rounded-lg dark:bg-[#333333] border-b-2 border-[#ff3b30] dark:border-[#ff9500]"
             key={index}
-            onMouseEnter={() => setImgImdbHover(index + 1)}
-            onMouseLeave={() => setImgImdbHover(Number(null))}
+            // onMouseEnter={() => setImgImdbHover(index + 1)}
+            // onMouseLeave={() => setImgImdbHover(Number(null))}
           >
             <Link to={`/actor/${actor.id}`}>
               <div className="flex flex-col justify-around gap-3 text-[#1c1c1e] dark:text-[#fff] px-3 py-2 w-full rounded-b-lg">

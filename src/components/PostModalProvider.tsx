@@ -1,23 +1,18 @@
-import {  ReactNode, useReducer } from "react";
-// import tasksReducer from "./reducers/TasksReducer";
+import { ReactNode, useReducer } from "react";
 import PostModalContext from "./PostModalContext";
-
-
 
 export type ModalAction = number | null;
 
-
-const tasksReducer = (genreSelect: number | null , action: ModalAction): number | null => {
-    return genreSelect = action
-}
-// end
-
+// اصلاح شده: _state به جای state
+const tasksReducer = (_state: number | null, action: ModalAction): number | null => {
+  return action; // فقط مقدار action را باز می‌گرداند
+};
 
 interface Props {
   children: ReactNode;
 }
 
-const PostModalProvider = ({ children }: Props) => {
+const PostModalProvider: React.FC<Props> = ({ children }) => {
   const [toggle, dispatch] = useReducer(tasksReducer, null);
   return (
     <PostModalContext.Provider value={{ toggle, dispatch }}>

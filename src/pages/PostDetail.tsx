@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import usePostDetail from "../hooks/usePostDetail";
-import PostVideos from "../components/PostVideos";
+// import PostVideos from "../components/PostVideos";
 import PostRecommendations from "../components/PostRecommendations";
 import PostImage from "../components/PostImage";
 import PostProperty from "../components/PostProperty";
@@ -10,6 +10,7 @@ import PostCast from "../components/PostCast";
 import PostCrew from "../components/PostCrew";
 import PostAccordions from "../components/PostAccordions";
 import PostModalProvider from "../components/PostModalProvider";
+// import PostModalProvider from "../components/PostModalProvider";
 
 const PostDetail = () => {
   const { id, type } = useParams();

@@ -1,7 +1,6 @@
 import Actor from "../components/Actor";
 import NavData from "../components/header/NavData";
 import HomeMainGrid from "../components/HomeMainGrid";
-import ImdbRate from "../components/ImdbRate";
 import PostProvider from "../components/PostProvider";
 import TrendingSwiper from "../components/TrendingSwiper";
 import Type from "../components/Type";

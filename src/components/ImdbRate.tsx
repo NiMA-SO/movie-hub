@@ -91,6 +91,7 @@ const ImdbRate: React.FC<ImdbRateProps> = ({ rating, ratingCount, imdbId, blur }
               fill={COLORS[index % COLORS.length]}
               stroke="none"
               className="mx-auto"
+              data-value={entry.value} 
             />
           ))}
         </Pie>
