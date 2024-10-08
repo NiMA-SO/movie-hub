@@ -21,8 +21,9 @@ const tasksReducer = (postType: string , action: PostAction): string => {
           return postType = action.type
       case 'day':
           return postType = action.type
+      default:
+        return postType
   }
-  return postType;
 }
 // end
 
