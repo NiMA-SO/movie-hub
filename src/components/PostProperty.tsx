@@ -13,8 +13,8 @@ const PostProperty = ({ post }: Props) => {
       <div className="grid grid-cols-8 col-span-2">
         <img
           className="col-span-8 mx-auto lg:col-span-2 rounded-xl w-[320px] border-2 border-[#ff3b30] dark:border-[#ff9500]"
-          src={`https://image.tmdb.org/t/p/w220_and_h330_face/${post?.backdrop_path}`}
-          alt={`https://image.tmdb.org/t/p/w220_and_h330_face/${post?.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w220_and_h330_face/${post?.poster_path}`}
+          alt={`https://image.tmdb.org/t/p/w220_and_h330_face/${post?.poster_path}`}
         />
         <div className="col-span-8 lg:col-span-6 grid grid-cols-8 px-4 py-2 pb-4 leading-normal  gap-4">
           <div className="col-span-8 sm:col-span-6 flex flex-col justify-between">
