@@ -7,7 +7,7 @@ import {
   EffectCreative,
 } from "swiper/modules";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { PostVideo } from "../hooks/useDiscover";
+import { PostVideo } from "../../../hooks/useDiscover";
 
 interface Props {
   post: PostVideo[];

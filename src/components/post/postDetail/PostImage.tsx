@@ -7,9 +7,9 @@ import {
   EffectCreative,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ImdbRate from "./ImdbRate";
+import ImdbRate from "../ImdbRate";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { Discover } from "../hooks/useDiscover";
+import { Discover } from "../../../hooks/useDiscover";
 
 interface Props {
   post: Discover;

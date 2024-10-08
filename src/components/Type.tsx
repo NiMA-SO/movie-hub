@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import PostContext from "./PostType";
+import PostContext from "./post/PostType";
 
 const Type = () => {
   const { postType, dispatch } = useContext(PostContext);

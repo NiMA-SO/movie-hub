@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Cast } from "../hooks/useDiscover";
 import {
   Navigation,
   Pagination,
@@ -10,8 +9,9 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./credit.css";
-import men from "./../assets/men.png";
-import women from "./../assets/women.png";
+import men from "./../../../assets/men.png";
+import women from "./../../../assets/women.png";
+import { Cast } from "../../../hooks/useDiscover";
 
 interface Props {
   post: Cast[];

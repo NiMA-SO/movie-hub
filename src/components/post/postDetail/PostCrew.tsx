@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Crew } from "../hooks/useDiscover";
 import { Link } from "react-router-dom";
 import {
   Navigation,
@@ -9,6 +8,7 @@ import {
   EffectCards,
 } from "swiper/modules";
 import "./credit.css";
+import { Crew } from "../../../hooks/useDiscover";
 
 interface Props {
   post: Crew[];

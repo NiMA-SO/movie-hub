@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import usePostDetail from "../hooks/usePostDetail";
-import ImdbRate from "./ImdbRate";
-import RunTime from "./RunTime";
+import usePostDetail from "../../../hooks/usePostDetail";
+import ImdbRate from "../ImdbRate";
+import RunTime from "../RunTime";
+// import usePostDetail from "../hooks/usePostDetail";
+// import ImdbRate from "./ImdbRate";
+// import RunTime from "./RunTime";
 
 interface Props {
   postId: number;

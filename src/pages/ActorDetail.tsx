@@ -11,7 +11,7 @@ import {
 import { SwiperSlide } from "swiper/react";
 import usePlayedActor from "../hooks/usePlayedActor";
 import ExpandableText from "../components/ExpandableText";
-import SkeletonActorDetail from "../components/SkeletonActorDetail";
+import SkeletonActorDetail from "../components/actor/actorDetail/SkeletonActorDetail";
 
 const ActorDetail = () => {
   const param = useParams();

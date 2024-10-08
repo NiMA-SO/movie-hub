@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { Discover } from "../hooks/useDiscover";
 import { BiSolidCameraMovie } from "react-icons/bi";
-import PostModalSeason from "./PostModalSeason";
+import { Discover } from "../../../hooks/useDiscover";
 import PostModalContext from "./PostModalContext";
+import PostModalSeason from "./PostModalSeason";
 
 interface Props {
   post: Discover;

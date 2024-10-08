@@ -7,9 +7,9 @@ import {
   EffectCreative,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import useActor from "../hooks/useActor";
 import { Link } from "react-router-dom";
 import SkeletonActor from "./SkeletonActor";
+import useActor from "../../../hooks/useActor";
 
 const Actor = () => {
   const { data, isLoading } = useActor();

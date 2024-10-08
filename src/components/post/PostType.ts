@@ -1,5 +1,5 @@
 import React, { Dispatch } from "react";
-import { PostAction } from "./PostProvider";
+import { PostAction } from "./post/PostProvider";
 
 
 interface TasksContextType{

@@ -1,6 +1,6 @@
-import { Discover } from "../hooks/useDiscover";
-import ImdbRate from "./ImdbRate";
-import RunTime from "./RunTime";
+import { Discover } from "../../../hooks/useDiscover";
+import ImdbRate from "../ImdbRate";
+import RunTime from "../RunTime";
 
 interface Props {
   post: Discover;

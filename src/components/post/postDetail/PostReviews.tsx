@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Reviews } from "../hooks/useDiscover";
-import ImdbRate from "./ImdbRate";
-import ExpandableText from "./ExpandableText";
+import { Reviews } from "../../../hooks/useDiscover";
+import ImdbRate from "../ImdbRate";
+import ExpandableText from "../../ExpandableText";
 
 interface Props {
   post: Reviews[];

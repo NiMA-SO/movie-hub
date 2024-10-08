@@ -1,17 +1,16 @@
 import { useParams } from "react-router-dom";
 import usePostDetail from "../hooks/usePostDetail";
-// import PostVideos from "../components/PostVideos";
-import PostRecommendations from "../components/PostRecommendations";
-import PostImage from "../components/PostImage";
-import PostProperty from "../components/PostProperty";
-import PostSimilar from "../components/PostSimilar";
-import PostReviews from "../components/PostReviews";
-import PostCast from "../components/PostCast";
-import PostCrew from "../components/PostCrew";
-import PostAccordions from "../components/PostAccordions";
-import PostModalProvider from "../components/PostModalProvider";
 import { useEffect } from "react";
-// import PostModalProvider from "../components/PostModalProvider";
+import PostAccordions from "../components/post/postDetail/PostAccordions";
+import PostCast from "../components/post/postDetail/PostCast";
+import PostCrew from "../components/post/postDetail/PostCrew";
+import PostImage from "../components/post/postDetail/PostImage";
+import PostModalProvider from "../components/post/postDetail/PostModalProvider";
+import PostProperty from "../components/post/postDetail/PostProperty";
+import PostRecommendations from "../components/post/postDetail/PostRecommendations";
+import PostReviews from "../components/post/postDetail/PostReviews";
+import PostSimilar from "../components/post/postDetail/PostSimilar";
+// import PostVideos from "../components/post/postDetail/PostVideos";
 
 const PostDetail = () => {
   const { id, type } = useParams();

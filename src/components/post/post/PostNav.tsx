@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Discover } from "../hooks/useDiscover";
+import { Discover } from "../../../hooks/useDiscover";
 
 interface Props {
   data: FetchResponseDiscover<Discover> | undefined;

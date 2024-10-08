@@ -1,7 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Discover } from "../hooks/useDiscover";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import {
   Navigation,
   Pagination,
@@ -9,28 +7,34 @@ import {
   Autoplay,
   EffectCoverflow,
 } from "swiper/modules";
-import ImdbRate from "./ImdbRate";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Recommendations } from "../../../hooks/useDiscover";
+import ImdbRate from "../ImdbRate";
 
 interface Props {
-  post: Discover;
-  type: string | undefined;
+  post: Recommendations[];
 }
+const PostRecommendations = ({ post }: Props) => {
+  const [imgImdbHover, setImgImdbHover] = useState<number>(Number(null));
 
-const PostSimilar = ({ post, type }: Props) => {
-  const [imgImdbHover, setImgImdbHover] = useState<number | null>(null); // اصلاح شده
-
-  
   if(post)return (
     <>
-      <h2 className="text-[25px] mt-10">Similar :</h2>
+      <h2 className="text-[25px] mt-10">Recommendations :</h2>
       <Swiper
         modules={[Navigation, Pagination, Keyboard, Autoplay, EffectCoverflow]}
         className="w-full  rounded-md select-none mt-3"
-        slidesPerView="auto" // اصلاح شده
+        // breakpoints={{
+        //   0: { slidesPerView: 1 },
+        //   640: { slidesPerView: 2 },
+        //   1024: { slidesPerView: 3 },
+        //   1280: { slidesPerView: 1 },
+        //   1300: { slidesPerView: "auto" },
+        // }}
+        slidesPerView={"auto"}
         navigation={{
-          nextEl: ".nextBtnSimilar",
-          prevEl: ".prevBtnSimilar",
+          nextEl: ".nextBtnRecommendations",
+          prevEl: ".prevBtnRecommendations",
         }}
         loop={true}
         pagination={{ type: "progressbar", enabled: true }}
@@ -40,25 +44,25 @@ const PostSimilar = ({ post, type }: Props) => {
         centeredSlides={true}
         effect="coverflow"
       >
-        {post?.similar.results.map((similar, index) => (
+        {post?.map((recommendations, index) => (
           <SwiperSlide
             className="mt-6 rounded-lg overflow-hidden flex justify-center items-center w-[300px] h-[448px]"
             key={index}
             onMouseEnter={() => setImgImdbHover(index + 1)}
-            onMouseLeave={() => setImgImdbHover(null)} // اصلاح شده
+            onMouseLeave={() => setImgImdbHover(Number(null))}
           >
-            <Link to={`/post/${similar.id}/${type}`}>
+            <Link to={`/post/${recommendations.id}/${recommendations.media_type}`}>
               <img
-                src={`https://image.tmdb.org/t/p/original/${similar.poster_path}`}
-                alt="image" // اصلاح شده
+                src={`https://image.tmdb.org/t/p/original/${recommendations.poster_path}`}
+                alt={"image"}
                 className={`rounded-lg mx-auto w-[300px] border-[#e5e5e5] dark:border-[#3a3a3c] border-2`}
               />
               {imgImdbHover === index + 1 && (
                 <div className="absolute bottom-[0px] flex justify-around items-center text-white py-2 w-[299px] rounded-b-lg backdrop-blur-sm bg-black/30">
-                  <span className="ml-4 w-[200px] text-justify">{similar.original_title ? similar.original_title : similar.original_name} : </span>
+                  <span className="ml-4">{recommendations?.original_title ? recommendations.original_title : recommendations.original_name} : </span>
                   <ImdbRate
-                    rating={similar?.vote_average}
-                    ratingCount={similar?.vote_count}
+                    rating={recommendations?.vote_average}
+                    ratingCount={recommendations?.vote_count}
                     blur={true}
                   />
                 </div>
@@ -68,10 +72,10 @@ const PostSimilar = ({ post, type }: Props) => {
         ))}
       </Swiper>
       <div className="flex gap-16 justify-center mt-5">
-        <button className="duration-200 text-[#ff5733] hover:text-[#b63c22] dark:text-[#ffd580] hover:dark:text-[#c7942e] text-[40px] prevBtnSimilar z-[20]">
+        <button className="duration-200 text-[#ff5733] hover:text-[#b63c22] dark:text-[#ffd580] hover:dark:text-[#c7942e] text-[40px] prevBtnRecommendations z-[20]">
           <FaArrowAltCircleLeft />
         </button>
-        <button className="duration-200 text-[#ff5733] hover:text-[#b63c22] dark:text-[#ffd580] hover:dark:text-[#c7942e] text-[40px] nextBtnSimilar z-[10]">
+        <button className="duration-200 text-[#ff5733] hover:text-[#b63c22] dark:text-[#ffd580] hover:dark:text-[#c7942e] text-[40px] nextBtnRecommendations z-[10]">
           <FaArrowAltCircleRight />
         </button>
       </div>
@@ -79,4 +83,4 @@ const PostSimilar = ({ post, type }: Props) => {
   );
 };
 
-export default PostSimilar;
+export default PostRecommendations;

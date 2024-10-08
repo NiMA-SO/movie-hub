@@ -1,8 +1,8 @@
-import Actor from "../components/Actor";
+import Actor from "../components/actor/actor/Actor";
 import NavData from "../components/header/NavData";
 import HomeMainGrid from "../components/HomeMainGrid";
-import PostProvider from "../components/PostProvider";
-import TrendingSwiper from "../components/TrendingSwiper";
+import PostProvider from "../components/post/post/PostProvider";
+import TrendingSwiper from "../components/post/post/TrendingSwiper";
 import Type from "../components/Type";
 
 const HomePage = () => {

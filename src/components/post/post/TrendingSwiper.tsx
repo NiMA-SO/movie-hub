@@ -11,13 +11,13 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import useMovies from "../hooks/useNew";
+import useMovies from "../../../hooks/useNew";
 import { FaAngleRight, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import "./../pages/index.css";
+// import "./../pages/index.css";
 import { useContext, useState } from "react";
-import PostContext from "./PostType";
+import PostContext from "../PostType";
 import { Link } from "react-router-dom";
-import ImdbRate from "./ImdbRate";
+import ImdbRate from "../ImdbRate";
 // import { useState } from "react";
 
 const TrendingSwiper = () => {

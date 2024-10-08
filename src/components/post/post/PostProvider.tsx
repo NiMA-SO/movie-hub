@@ -1,5 +1,5 @@
 import {  ReactNode, useReducer } from "react";
-import PostContext from "./PostType";
+import PostContext from "../PostType";
 // import tasksReducer from "./reducers/TasksReducer";
 
 

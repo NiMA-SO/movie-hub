@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import useSeasons from "../../../hooks/useSeasons";
+import ImdbRate from "../ImdbRate";
 import PostModalContext from "./PostModalContext";
-import useSeasons from "../hooks/useSeasons";
-import ImdbRate from "./ImdbRate";
 
 interface Props {
   postId: number;

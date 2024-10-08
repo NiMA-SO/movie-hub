@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import PostContext from "./PostType";
+import PostContext from "./post/PostType";
 import useDiscover from "../hooks/useDiscover";
-import Discover from "./Discover";
+import Discover from "./post/post/Discover";
 import { useParams } from "react-router-dom";
-import PostNav from "./PostNav";
+import PostNav from "./post/post/PostNav";
 
 const HomeMainGrid = () => {
   const { postType } = useContext(PostContext);
