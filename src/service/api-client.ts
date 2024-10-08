@@ -48,6 +48,12 @@ interface FetchResponsePostVideos<T>{
   results: T[];
 }
 
+interface FetchResponsePostChanges<T>{
+  results: T[];
+}
+
+
+
 
 const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -94,6 +100,12 @@ class APIClient<T> {
     return axiosInstance.get<FetchResponseDiscover<T>>(this.endpoint, config).then(res => res.data)
   }
   getSeasons = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<T>(this.endpoint, config).then(res => res.data)
+  }
+  getChanges = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<FetchResponsePostChanges<T>>(this.endpoint, config).then(res => res.data)
+  }
+  getChangeProperty = (config: AxiosRequestConfig) => {
     return axiosInstance.get<T>(this.endpoint, config).then(res => res.data)
   }
 }
