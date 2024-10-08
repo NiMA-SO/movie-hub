@@ -9,33 +9,28 @@ interface Props {
 }
 
 interface FetchResponseDiscover<T> {
-    page: number;
-    results: T[];
-    total_results: number;
+  page: number;
+  results: T[];
+  total_results: number;
 }
 
 const PostNav = ({ data, isPreviousData }: Props) => {
-    const [page, setPage] = useState<number>(2);
-    const [totalPosts, setTotalPosts] = useState<number>(0);
-    const [totalPages, setTotalPages] = useState<number>(0);
-    const pageSize = 20;
-    
-    
-    
-    useEffect(() => {
-  if (data?.results && data?.results.length > 0) {
-    const totalPosts = data.total_results / 2 || 0;
-    setTotalPosts(totalPosts);
-    const totalPages = Math.ceil(totalPosts / pageSize);
-    setTotalPages(totalPages);
-  } else {
-    // Handle case when data or results is undefined or empty
-    setTotalPosts(0);
-    setTotalPages(0);
-  }
-}, [data]);
+  const [page, setPage] = useState<number>(2);
+  const [totalPosts, setTotalPosts] = useState<number>(0);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const pageSize = 20;
 
-
+  useEffect(() => {
+    if (data?.results && data?.results.length > 0) {
+      const totalPosts = data.total_results / 2 || 0;
+      setTotalPosts(totalPosts);
+      const totalPages = Math.ceil(totalPosts / pageSize);
+      setTotalPages(totalPages);
+    } else {
+      setTotalPosts(0);
+      setTotalPages(0);
+    }
+  }, [data]);
 
   const startItem = (page - 1) * pageSize + 1;
   const endItem = Math.min(page * pageSize, totalPosts);
@@ -57,7 +52,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
     if (startPage > 1) {
       pageNumbers.push(
         <Link to="/page/1" key={1} onClick={() => setPage(1)}>
-          <button className="relative inline-flex items-center px-4 py-2 text-sm font-semibold hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
+          <button className="relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
             1
           </button>
         </Link>
@@ -66,7 +61,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
         pageNumbers.push(
           <span
             key="start-ellipsis"
-            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0"
+            className="relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0"
           >
             ...
           </span>
@@ -78,7 +73,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
       pageNumbers.push(
         <Link to={`/page/${i}`} key={i} onClick={() => setPage(i)}>
           <button
-            className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] focus:outline-offset-0 ${
+            className={`relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] focus:outline-offset-0 ${
               i === page ? "bg-[#ff3b30] dark:bg-[#ff9500]" : ""
             }`}
           >
@@ -93,7 +88,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
         pageNumbers.push(
           <span
             key="end-ellipsis"
-            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0"
+            className="relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0"
           >
             ...
           </span>
@@ -105,7 +100,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
           key={totalPages}
           onClick={() => setPage(totalPages)}
         >
-          <button className="relative inline-flex items-center px-4 py-2 text-sm font-semibold hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
+          <button className="relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
             {totalPages}
           </button>
         </Link>
@@ -116,7 +111,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
   };
 
   return (
-    <div className="flex items-center justify-around text-[#333333] dark:text-[#f2f2f7] bg-white dark:bg-[#2c2c2e] border border-gray-200 rounded-lg shadow  dark:border-gray-700 px-4 py-3 sm:px-6 w-[100%] mt-6">
+    <div className="flex flex-wrap items-center justify-around text-[#333333] dark:text-[#f2f2f7] bg-white dark:bg-[#2c2c2e] border border-gray-200 rounded-lg shadow dark:border-gray-700 px-4 py-3 sm:px-6 w-[100%] mt-6">
       <div className="flex flex-1 items-center justify-between">
         <div className="hidden sm:block">
           <p className="text-sm">
