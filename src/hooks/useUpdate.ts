@@ -6,10 +6,10 @@ interface Changes {
   adult: boolean;
 }
 
-const useUpdate = () => {
-  const apiClient = new APIClient<Changes>("/tv/changes");
+const useUpdate = (type : string) => {
+  const apiClient = new APIClient<Changes>(`/${type}/changes`);
   return useQuery({
-      queryKey: ["tv changes"],
+      queryKey: ["changes",type],
       queryFn: apiClient.getChanges,
     });
 };

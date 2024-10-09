@@ -4,7 +4,9 @@ import useDiscover from "../hooks/useDiscover";
 import Discover from "./post/post/Discover";
 import { useParams } from "react-router-dom";
 import PostNav from "./post/post/PostNav";
-import Update from "./update/Update";
+import UpdateTv from "./update/UpdateTv";
+import UpdateMovie from "./update/UpdateMovie";
+import UpdatePeople from "./update/UpdatePeople";
 
 const HomeMainGrid = () => {
   const { postType } = useContext(PostContext);
@@ -29,9 +31,11 @@ const HomeMainGrid = () => {
             <p>No results found.</p>
           )}
           <PostNav data={data} isPreviousData={isPreviousData} />
+          <UpdatePeople />
         </div>
-        <div className="col-span-8 xl:col-span-2 bg-white dark:bg-[#2c2c2e] p-4 rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start">
-          <Update />
+        <div className="col-span-8 xl:col-span-2 dark:bg-[#2c2c2e] p-4 overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 ">
+          <UpdateTv />
+          <UpdateMovie />
         </div>
       </main>
     );
