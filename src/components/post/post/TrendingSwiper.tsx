@@ -12,13 +12,15 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useMovies from "../../../hooks/useNew";
-import { FaAngleRight, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-// import "./../pages/index.css";
+import {
+  FaAngleRight,
+  FaArrowAltCircleLeft,
+  FaArrowAltCircleRight,
+} from "react-icons/fa";
 import { useContext, useState } from "react";
 import PostContext from "../PostType";
 import { Link } from "react-router-dom";
 import ImdbRate from "../ImdbRate";
-// import { useState } from "react";
 
 const TrendingSwiper = () => {
   const { postType } = useContext(PostContext);
@@ -100,24 +102,39 @@ const TrendingSwiper = () => {
                       alt={movie.title}
                       className="sm:hidden mx-auto w-full rounded-2xl duration-200"
                     />
-                    {/*hover === movie.id */  activeSlide === index && (
-                      <h2
-                        className={
-                          " duration-200 absolute bottom-0 gap-3 text-md w-full break-words z-40 text-white bg-[#0000008c]  rounded-xl text-left backdrop-blur-[10px] flex flex-col justify-between p-3"
-                        }
-                      >
-                        <p className="flex justify-between items-center">
-                          {movie.title ? movie.title : movie.name} : {movie.release_date}{" "}
-                          <FaAngleRight className="text-[20px]" />
-                        </p>
-                        <ImdbRate blur={true} rating={movie.vote_average} imdbId={movie.imdb_id} ratingCount={movie.vote_count} />
-                        <p className="flex justify-between items-center">
-                          <span className="hidden lg:block">{movie.overview.substring(0,70)}...</span>
-                          <span className="block lg:hidden">{movie.overview.substring(0,20)}...</span>
-                          <FaAngleRight className="text-[20px]" />
-                        </p>
-                      </h2>
-                    )}
+                    {
+                      /*hover === movie.id */ activeSlide === index && (
+                        <h2
+                          className={
+                            " duration-200 absolute bottom-0 gap-3 text-md w-full break-words z-40 text-white bg-[#0000008c]  rounded-xl text-left backdrop-blur-[10px] flex flex-col justify-between p-3"
+                          }
+                        >
+                          <p className="flex justify-between items-center">
+                            Name{" "}
+                            {movie.media_type == "tv"
+                              ? "series"
+                              : movie.media_type}{" "}
+                            : {movie.title ? movie.title : movie.name}
+                            <FaAngleRight className="text-[20px]" />
+                          </p>
+                          <ImdbRate
+                            blur={true}
+                            rating={movie.vote_average}
+                            imdbId={movie.imdb_id}
+                            ratingCount={movie.vote_count}
+                          />
+                          <p className="flex justify-between items-center">
+                            <span className="hidden lg:block">
+                              {movie.overview.substring(0, 70)}...
+                            </span>
+                            <span className="block lg:hidden">
+                              {movie.overview.substring(0, 20)}...
+                            </span>
+                            <FaAngleRight className="text-[20px]" />
+                          </p>
+                        </h2>
+                      )
+                    }
                   </Link>
                 </SwiperSlide>
               )

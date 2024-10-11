@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Discover } from "../../../hooks/useDiscover";
 
 interface Props {
@@ -19,6 +19,8 @@ const PostNav = ({ data, isPreviousData }: Props) => {
   const [totalPosts, setTotalPosts] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const pageSize = 20;
+
+  const param = useParams()
 
   useEffect(() => {
     if (data?.results && data?.results.length > 0) {
@@ -74,7 +76,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
         <Link to={`/page/${i}`} key={i} onClick={() => setPage(i)}>
           <button
             className={`relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] focus:outline-offset-0 ${
-              i === page ? "bg-[#ff3b30] dark:bg-[#ff9500]" : ""
+              i === Number(param.page) ? "bg-[#ff3b30] dark:bg-[#ff9500]" : ""
             }`}
           >
             {i}
