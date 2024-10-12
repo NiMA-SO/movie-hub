@@ -65,9 +65,19 @@ html{
 .custom-cursor {
     font-size: 50px; /* این سایز را با اندازه متن هماهنگ کنید */
     color: #FF3B30; /* رنگ خط تایپ */
+    animation: cursor 0.5s infinite;
 }
 .dark .custom-cursor {
     font-size: 50px; /* این سایز را با اندازه متن هماهنگ کنید */
     color: #FF9500; /* رنگ خط تایپ */
+    animation: cursor 0.5s infinite;
+}
+@keyframes cursor{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
 }
 /* cursor text header  */
