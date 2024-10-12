@@ -32,7 +32,7 @@ const HomeMainGrid = () => {
           <PostNav data={data} isPreviousData={isPreviousData} />
           <UpdatePeople />
         </div>
-        <div className="col-span-8 xl:col-span-2 dark:bg-[#2c2c2e] p-4 overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 ">
+        <div className="hidden md:block col-span-8 xl:col-span-2 dark:bg-[#2c2c2e] p-4 overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 ">
           <UpdateTv />
           {/* <UpdateMovie /> */}
         </div>
