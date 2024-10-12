@@ -61,4 +61,13 @@ html{
 /* actor details */
 
 
-
+/* cursor text header  */
+.custom-cursor {
+    font-size: 50px; /* این سایز را با اندازه متن هماهنگ کنید */
+    color: #FF3B30; /* رنگ خط تایپ */
+}
+.dark .custom-cursor {
+    font-size: 50px; /* این سایز را با اندازه متن هماهنگ کنید */
+    color: #FF9500; /* رنگ خط تایپ */
+}
+/* cursor text header  */
