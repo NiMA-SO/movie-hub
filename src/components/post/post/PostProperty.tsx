@@ -24,13 +24,13 @@ const PostProperty = ({ post,type, postId }: Props) => {
         />
       </div>
       <div className="col-span-8 lg:col-span-6 grid grid-cols-8 p-4 leading-normal  gap-4">
-        <div className="col-span-8 sm:col-span-6 flex flex-col justify-between">
+        <div className="col-span-8 sm:col-span-6 flex flex-col justify-around">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {type == "tv" ? "Series" : capitalizeFirstLetter(type)} Name :{" "}
             {post?.original_title ? post.original_title : post?.name}
           </h5>
 
-          <p className="flex">Status : {post?.status}</p>
+          {post.status && <p className="flex">Status : {post?.status}</p>}
 
           {post?.genres?.length > 0 && (
             <p className="flex">

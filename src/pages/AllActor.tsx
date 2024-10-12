@@ -28,10 +28,10 @@ const AllActor = () => {
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
             {page?.results.map((actor) => (
-              <div className="w-[300px] md:w-[200px] bg-white border border-gray-200 rounded-lg shadow dark:bg-[#2c2c2e] dark:border-gray-700">
+              <div className="hover:scale-[1.05] duration-150 w-[300px] md:w-[200px] bg-white border border-gray-200 rounded-lg shadow dark:bg-[#2c2c2e] dark:border-gray-700">
                 <Link to={`/actor/${actor.id}`}>
                   <img
-                    className="rounded-t-lg w-full"
+                    className="rounded-t-lg w-full h-[447px] md:h-[297px]"
                     src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                     alt=""
                   />

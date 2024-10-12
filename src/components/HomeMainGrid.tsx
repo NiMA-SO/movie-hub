@@ -5,7 +5,6 @@ import Discover from "./post/post/Discover";
 import { useParams } from "react-router-dom";
 import PostNav from "./post/post/PostNav";
 import UpdateTv from "./update/UpdateTv";
-import UpdateMovie from "./update/UpdateMovie";
 import UpdatePeople from "./update/UpdatePeople";
 
 const HomeMainGrid = () => {
@@ -35,7 +34,7 @@ const HomeMainGrid = () => {
         </div>
         <div className="col-span-8 xl:col-span-2 dark:bg-[#2c2c2e] p-4 overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 ">
           <UpdateTv />
-          <UpdateMovie />
+          {/* <UpdateMovie /> */}
         </div>
       </main>
     );

@@ -1,3 +1,4 @@
+import type { Discover } from "../../../hooks/useDiscover";
 import Post from "./Post";
 
 interface DiscoverResponse {
@@ -36,10 +37,11 @@ interface Props {
 }
 
 const Discover = ({ data }: Props) => {
+  console.log(data)
   return (
     <div className="grid grid-cols-1 gap-4">
       {data?.map((post) => (
-       <Post postId={post.id} type={post.media_type} key={post.id}/>
+       <Post post={post as Discover} key={post.id}/>
       ))}
     </div>
   );
