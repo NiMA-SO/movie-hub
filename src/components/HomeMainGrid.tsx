@@ -11,7 +11,7 @@ const HomeMainGrid = () => {
   const { postType } = useContext(PostContext);
   
   const { page } = useParams<{ page: string }>();  // گرفتن پارامتر صفحه از URL
-  const currentPage = Number(page) || 2;  // تبدیل پارامتر به عدد، و پیش‌فرض 1
+  const currentPage = Number(page) || 1;  // تبدیل پارامتر به عدد، و پیش‌فرض 1
 
   if(postType == 'day' || postType == 'week'){
     const { data, isFetching, isPreviousData } = useDiscover(
