@@ -32,6 +32,9 @@ const PostNav = ({ data, isPreviousData }: Props) => {
       setTotalPosts(0);
       setTotalPages(0);
     }
+    if(!Number(param.page)){
+      location.href = '/page/2'
+    }
   }, [data]);
 
   const startItem = (page - 1) * pageSize + 1;

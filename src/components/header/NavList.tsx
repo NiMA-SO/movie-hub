@@ -12,7 +12,7 @@ const NavList = () => {
     }
   }, []);
   return (
-    <ul className="dark:text-white justify-around gap-3 hidden xl:flex z-40">
+    <ul className="dark:text-white justify-around gap-3 flex z-40">
       <li className="hover:border-b-[2px] border-[#ff5733] hover:text-[#ff3b30] dark:border-[#ff9500] dark:hover:text-[#ff9500] px-2 py-[10px] duration-[50ms] cursor-pointer">
         <Link to={"/"} className="flex items-center justify-between">
           Home

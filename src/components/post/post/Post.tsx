@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Post = ({ post }: Props) => {
-  // const { data: post } = usePostDetail({ postId, type });
 
   if (post)
     return (
