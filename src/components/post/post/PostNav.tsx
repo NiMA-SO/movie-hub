@@ -15,7 +15,7 @@ interface FetchResponseDiscover<T> {
 }
 
 const PostNav = ({ data, isPreviousData }: Props) => {
-  const [page, setPage] = useState<number>(2);
+  const [page, setPage] = useState<number>(1);
   const [totalPosts, setTotalPosts] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const pageSize = 20;
@@ -80,6 +80,7 @@ const PostNav = ({ data, isPreviousData }: Props) => {
           <button
             className={`relative inline-flex items-center px-2 sm:px-4 py-2 text-sm font-semibold hover:text-[#f2f2f7] text-[#333333] dark:text-[#f2f2f7] ring-1 ring-inset ring-gray-300 hover:bg-[#ff3b30] hover:dark:bg-[#ff9500] focus:outline-offset-0 ${
               i === Number(param.page) ? "bg-[#ff3b30] dark:bg-[#ff9500]" : ""
+              i === 1 && !Number(param.page) ? "bg-[#ff3b30] dark:bg-[#ff9500]" : ""
             }`}
           >
             {i}
