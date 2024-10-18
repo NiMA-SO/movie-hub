@@ -83,3 +83,27 @@ html{
     }
 }
 /* cursor text header  */
+
+
+@keyframes button-loading{
+    from{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes button-loading-center{
+    from{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}

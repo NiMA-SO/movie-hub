@@ -2,58 +2,65 @@ import axios, { AxiosRequestConfig } from "axios";
 import { Discover } from "../hooks/useDiscover";
 
 export interface FetchResponse<T> {
-    genres: T[]
+  genres: T[];
 }
 export interface FetchResponseFilm<T> {
-    page: number;
-    results: T[]
-    next: number
+  page: number;
+  results: T[];
+  next: number;
 }
 export interface FetchResponsePlayedActor<T> {
-  cast: T[]
+  cast: T[];
 }
 
-interface ActorDetail{
+interface ActorDetail {
   id: number;
-  name:string;
-  imdb_id:string;
-  place_of_birth:string
+  name: string;
+  imdb_id: string;
+  place_of_birth: string;
   profile_path: string;
   biography: string;
-  birthday:string;
+  birthday: string;
   gender: number;
   popularity: number;
-  known_for_department:string
+  known_for_department: string;
 }
 
 export interface FetchResponseAllActor<T> {
   page: number;
   results: T[];
   total_pages: number;
-  next: string | null
+  next: string | null;
 }
 
-interface FetchResponseDiscover<T>{
+interface FetchResponseDiscover<T> {
   page: number;
   results: T[];
-  total_results: number
+  total_results: number;
 }
 
-interface FetchResponsePostImages<T>{
-  id:number;
+interface FetchResponsePostImages<T> {
+  id: number;
   backdrops: T[];
 }
-interface FetchResponsePostVideos<T>{
-  id:number;
+interface FetchResponsePostVideos<T> {
+  id: number;
   results: T[];
 }
 
-interface FetchResponsePostChanges<T>{
+interface FetchResponsePostChanges<T> {
   results: T[];
 }
 
-
-
+interface AuthToken {
+  success: boolean;
+  expires_at: string;
+  request_token: string;
+}
+interface AuthSession {
+  success: boolean;
+  session_id: string;
+}
 
 const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -62,52 +69,79 @@ const axiosInstance = axios.create({
   },
 });
 
-
-
 class APIClient<T> {
   endpoint: string;
-  constructor(endpoint: string){
-    this.endpoint= endpoint;
+  constructor(endpoint: string) {
+    this.endpoint = endpoint;
   }
 
   getGenres = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
 
   getFilm = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponseFilm<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponseFilm<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getActorDetail = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<ActorDetail>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<ActorDetail>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getPostDetail = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<Discover>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<Discover>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getPostImages = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponsePostImages<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponsePostImages<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getPostVideos = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponsePostVideos<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponsePostVideos<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getPlayedActor = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponsePlayedActor<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponsePlayedActor<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
 
   getAllActor = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponseAllActor<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponseAllActor<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getDiscover = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponseDiscover<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponseDiscover<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getSeasons = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<T>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance.get<T>(this.endpoint, config).then((res) => res.data);
+  };
   getChanges = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<FetchResponsePostChanges<T>>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance
+      .get<FetchResponsePostChanges<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
   getChangeProperty = (config: AxiosRequestConfig) => {
-    return axiosInstance.get<T>(this.endpoint, config).then(res => res.data)
-  }
+    return axiosInstance.get<T>(this.endpoint, config).then((res) => res.data);
+  };
+  getAuthToken = (config: AxiosRequestConfig) => {
+    return axiosInstance.get<AuthToken>(this.endpoint, config).then((res) => res.data);
+  };
+  getAuthSession = (config: AxiosRequestConfig) => {
+    return axiosInstance.post<AuthSession>(this.endpoint, config).then((res) => res.data);
+  };
+  postAcceptLogin = (config: AxiosRequestConfig) => {
+    return axiosInstance.post<AuthToken>(this.endpoint, config).then((res) => res.data);
+  };
 }
 
 export default APIClient;

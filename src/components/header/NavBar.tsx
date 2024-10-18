@@ -12,7 +12,7 @@ const NavBar = () => {
               options={{
                 strings: [
                   '<span class="text-[40px] lg:text-[50px] text-[#333333] dark:text-[#f2f2f7] font-sans">Movies</span>  <span class="text-[30px] lg:text-[40px] text-[#FF3B30] dark:text-[#ff9500] font-sans">Hub</span>',
-                  '<span class="text-[40px] lg:text-[50px] text-[#333333] dark:text-[#f2f2f7] font-sans">موویز</span>  <span class="text-[30px] lg:text-[40px] text-[#FF3B30] dark:text-[#ff9500] font-sans">هاب</span>',
+                  '<span class="text-[40px] lg:text-[50px] text-[#333333] dark:text-[#f2f2f7] font-sans">Series</span>  <span class="text-[30px] lg:text-[40px] text-[#FF3B30] dark:text-[#ff9500] font-sans">Hub</span>',
                 ],
                 autoStart: true,
                 loop: true,
