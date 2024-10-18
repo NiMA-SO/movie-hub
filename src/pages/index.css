@@ -87,13 +87,13 @@ html{
 
 @keyframes button-loading{
     from{
-        transform: scale(1);
+        transform: scale(0.5);
     }
     50%{
         transform: scale(1.2);
     }
     to{
-        transform: scale(1);
+        transform: scale(0.5);
     }
 }
 @keyframes button-loading-center{
@@ -101,7 +101,7 @@ html{
         transform: scale(1.2);
     }
     50%{
-        transform: scale(1);
+        transform: scale(0.5);
     }
     to{
         transform: scale(1.2);

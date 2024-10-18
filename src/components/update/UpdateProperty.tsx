@@ -8,7 +8,6 @@ interface Props {
 }
 const UpdateProperty = ({ type, id }: Props) => {
   const { data } = useChangeProperty({ type, id });
-  console.log(data);
   // محاسبه طول متن برای تعیین تعداد ردیف‌ها
   // const textLength = data?.name.length || 0;
   // const rowSpan = Math.ceil(textLength / 30); // بر اساس تعداد کاراکترها تعداد ردیف را تعیین کنید (مثلاً هر 20 کاراکتر یک ردیف جدید)

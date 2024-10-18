@@ -137,11 +137,11 @@ class APIClient<T> {
     return axiosInstance.get<AuthToken>(this.endpoint, config).then((res) => res.data);
   };
   getAuthSession = (config: AxiosRequestConfig) => {
-    return axiosInstance.post<AuthSession>(this.endpoint, config).then((res) => res.data);
+    return axiosInstance.post<AuthSession>(this.endpoint, config.data).then((res) => res.data);
   };
   postAcceptLogin = (config: AxiosRequestConfig) => {
-    return axiosInstance.post<AuthToken>(this.endpoint, config).then((res) => res.data);
-  };
+    return axiosInstance.post<AuthToken>(this.endpoint, config.data).then((res) => res.data);
+};
 }
 
 export default APIClient;

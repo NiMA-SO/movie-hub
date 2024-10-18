@@ -12,13 +12,14 @@ const useAuthSession = () => {
           data: { request_token }, // استفاده از توکن تایید شده
         });
       },
-      onSuccess: (data) => {
-        console.log("Session created successfully:", data);
-        // session_id را ذخیره کنید
-      },
-      onError: (error) => {
-        console.error("Failed to create session:", error);
-      },
+      // onSuccess: (data) => {
+      //   console.log("Session created successfully:", data);
+      //   // session_id را ذخیره کنید
+        
+      // },
+      // onError: (error) => {
+      //   console.error("Failed to create session:", error);
+      // },
     });
   };
 

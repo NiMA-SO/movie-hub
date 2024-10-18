@@ -5,7 +5,7 @@ import ActorDetail from "../pages/ActorDetail";
 import AllActor from "../pages/AllActor";
 import PostDetail from "../pages/PostDetail";
 import Login from "../components/auth/Login";
-import Register from "../components/auth/Register";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       { path: "/actors", element: <AllActor /> },
       { path: "/post/:id/:type", element: <PostDetail /> },
       { path: "/Login", element: <Login /> },
-      { path: "/Register", element: <Register /> },
+      { path: "/profile", element: <Profile /> },
     ],
   },
 ]);

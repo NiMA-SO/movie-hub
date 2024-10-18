@@ -11,7 +11,7 @@ const Nav = () => {
   return (
     <>
       <nav className="w-[100%] h-full flex gap-4 justify-end lg:justify-around  items-center col-span-3 lg:col-span-6">
-        <div className="hidden xl:flex justify-between gap-[10px] w-[80%]">
+        <div className="hidden xl:flex justify-between items-center gap-[10px] w-[80%]">
           <NavList />
           <Switch />
           <AuthButtons />
