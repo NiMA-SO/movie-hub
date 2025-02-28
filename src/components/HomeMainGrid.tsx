@@ -4,8 +4,6 @@ import useDiscover from "../hooks/useDiscover";
 import Discover from "./post/post/Discover";
 import { useParams } from "react-router-dom";
 import PostNav from "./post/post/PostNav";
-import UpdateTv from "./update/UpdateTv";
-import UpdatePeople from "./update/UpdatePeople";
 
 const HomeMainGrid = () => {
   const { postType } = useContext(PostContext);
@@ -21,7 +19,7 @@ const HomeMainGrid = () => {
     );
     return (
       <main className="w-[98%] mx-auto grid grid-cols-8 gap-4 my-12">
-        <div className="col-span-8 xl:col-span-6 p-4 rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7]">
+        <div className="col-span-8 xl:col-span-8 p-4 rounded-3xl overflow-hidden text-[#333333] dark:text-[#f2f2f7]">
           {isFetching ? (
             <p>Loading...</p>
           ) : data && data?.results?.length > 0 ? (
@@ -30,12 +28,12 @@ const HomeMainGrid = () => {
             <p>No results found.</p>
           )}
           <PostNav data={data} isPreviousData={isPreviousData} />
-          <UpdatePeople />
+          {/* <UpdatePeople /> */}
         </div>
-        <div className="hidden md:block col-span-8 xl:col-span-2 dark:bg-[#2c2c2e] p-4 overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 ">
-          <UpdateTv />
+        {/* <div className="hidden md:block col-span-8 xl:col-span-2 dark:bg-[#2c2c2e] p-4 overflow-hidden text-[#333333] dark:text-[#f2f2f7] self-start bg-white border border-gray-200 rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 "> */}
+          {/* <UpdateTv /> */}
           {/* <UpdateMovie /> */}
-        </div>
+        {/* </div> */}
       </main>
     );
   }

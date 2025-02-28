@@ -27,12 +27,28 @@ const TrendingSwiper = () => {
   const [activeSlide, setActiveSlide] = useState<number | null>(null);
   // const [hover, setHover] = useState<number | null>(null);
 
-  const { data: movies } = useMovies(
+  const { data: movies ,isLoading } = useMovies(
     `/trending/all/${postType}`,
     `trending ${postType}`
   );
 
-  if (movies && Swiper)
+  if(isLoading){
+    return (
+      <div className="w-full h-[25rem] md:h-[35rem] lg:h-[35rem] relative pb-10 flex items-center justify-center gap-7">
+        {[0, 1, 2].map(
+          (index) => (
+            <div
+              key={index}
+              className={`text-center animate-pulse md:w-[19rem] md:h-[31rem] lg:w-[22rem] lg:h-[20rem] bg-gray-200 ${index == 1 && 'md:w-[30rem] md:h-[31rem] lg:w-[40rem] lg:h-[23rem]'}`}
+            >
+            </div>
+          )
+        )}
+      </div>
+    )
+  } 
+
+  if (movies && Swiper )
     return (
       <>
         <Swiper
