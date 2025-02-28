@@ -39,7 +39,7 @@ const TrendingSwiper = () => {
           (index) => (
             <div
               key={index}
-              className={`text-center animate-pulse md:w-[19rem] md:h-[31rem] lg:w-[22rem] lg:h-[20rem] bg-gray-200 ${index == 1 && 'md:w-[30rem] md:h-[31rem] lg:w-[40rem] lg:h-[23rem]'}`}
+              className={`text-center animate-pulse w-[19rem] h-[15rem] lg:w-[22rem] lg:h-[20rem] bg-gray-200 ${index == 1 && 'w-[25rem] h-[18rem] lg:w-[40rem] lg:h-[23rem]'}`}
             >
             </div>
           )
