@@ -14,12 +14,19 @@ import PostSimilar from "../components/post/postDetail/PostSimilar";
 
 const PostDetail = () => {
   const { id, type } = useParams();
-  const { data: post } = usePostDetail({ postId: Number(id), type });
+  const { data: post, isLoading } = usePostDetail({ postId: Number(id), type });
 
   useEffect(() => {
     // Scroll to the top of the page when the component is mounted
     window.scrollTo(0, 0);
   }, []);
+  if (isLoading) {
+    return <>
+      <div className="w-full h-[80vh] flex justify-center items-center">
+        <div className="size-[100px] rounded-full border-t-4 border-t-[#ff5733] dark:border-t-[#ffd580] animate-spin"></div>
+      </div>
+    </>;
+  }
 
   if (post)
     return (
