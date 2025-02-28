@@ -7,7 +7,7 @@ import PostDetail from "../pages/PostDetail";
 import Login from "../components/auth/Login";
 import Profile from "../pages/Profile";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
   {
     path: "/",
     element: <Layout />,
